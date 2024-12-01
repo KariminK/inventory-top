@@ -16,6 +16,7 @@ CREATE TYPE skin_quality AS ENUM (
 );
 
 CREATE TABLE skin(
+    id INT SERIAL PRIMARY KEY,
     weapon varchar(20),
     name varchar(50),
     quality skin_quality,
