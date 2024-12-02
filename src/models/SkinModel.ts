@@ -19,6 +19,15 @@ class Model {
     );
   }
   // TODO: dodac handler dla update i delete
+  async update(id: number, skin: skin) {
+    return await this.db.query(
+      "UPDATE skin SET weapon = $1, name = $2, quality = $3, collection = $4 WHERE id = $5",
+      [skin.weapon, skin.name, skin.quality, skin.collection, id]
+    );
+  }
+  async deleteSkin(id: number) {
+    return await this.db.query("DELETE FROM skin WHERE id = $1", [id]);
+  }
 }
 
 export default new Model(pool);
