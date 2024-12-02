@@ -1,7 +1,9 @@
 import { RequestHandler } from "express";
 import { skin } from "../types";
 
-export const getIndex: RequestHandler = (req, res) => {};
+export const getIndex: RequestHandler = (req, res) => {
+  res.render("index");
+};
 
 export const getNewSkin: RequestHandler = (req, res) => {};
 

@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+:root {
+  --background-dark: #000900;
+  --background-lighter: #0e0e0e;
+  --font-light: #ffffff;
+  --font-darker: #a6a6a6;
+  --accent-color: #369036;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+body {
+  background-color: var(--background-dark);
+}
+#add-skin-button {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-color);
+  border: none;
+  padding: 0px 20px;
+  color: var(--font-light);
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  height: 55px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
