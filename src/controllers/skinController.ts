@@ -7,7 +7,9 @@ export const getIndex: RequestHandler = (req, res) => {
   res.render("index");
 };
 
-export const getNewSkin: RequestHandler = (req, res) => {};
+export const getNewSkin: RequestHandler = (req, res) => {
+  res.render("newForm");
+};
 
 // post new skin
 const postNewSkinReqHandler: RequestHandler = (req, res) => {
@@ -48,6 +50,12 @@ export const postNewSkin = [
     .withMessage(
       "Skin Qualities are: Battle-Scared, Well-Worn, Field-Tested, Minimal Wear, Factory New"
     ),
+  body("collection")
+    .trim()
+    .notEmpty()
+    .withMessage("skin collection cannot be empty")
+    .isString()
+    .withMessage("skin collection must be text"),
   postNewSkinReqHandler,
 ];
 

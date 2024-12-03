@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/root.css" />
+    <link rel="stylesheet" href="/newFormStyles.css" />
+  </head>
+  <body>
+    <form action="/new" method="post">
+      <h1>Add new skin</h1>
+      <label for="weaponInput">
+        Weapon name:
+        <input type="text" name="weapon" id="weaponInput" />
+      </label>
+      <label for="name">
+        Skin name:
+        <input type="text" name="name" id="nameInput" />
+      </label>
+      <label for="quality">
+        Quality:
+        <select name="quality" id="qualitySel">
+          <option value="Battle-Scared">Battle-Scared</option>
+          <option value="Well-Worn">Well-Worn</option>
+          <option value="Field-Tested">Field-Tested</option>
+          <option value="Minimal Wear">Minimal Wear</option>
+          <option value="Factory new" selected>Factory new</option>
+        </select>
+      </label>
+      <label for="collection">
+        Collection:
+        <input type="text" name="collection" id="collectionInput" />
+      </label>
+      <input type="submit" value="Add" />
+      <a href="/">Cancel</a>
+    </form>
+  </body>
+</html>
