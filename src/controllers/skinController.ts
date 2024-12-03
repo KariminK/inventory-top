@@ -56,6 +56,12 @@ export const postNewSkin = [
     .withMessage("skin collection cannot be empty")
     .isString()
     .withMessage("skin collection must be text"),
+  body("photo_url")
+    .trim()
+    .notEmpty()
+    .withMessage("photo url cannot be empty")
+    .isURL()
+    .withMessage("photo link must be url"),
   postNewSkinReqHandler,
 ];
 

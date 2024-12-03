@@ -20,7 +20,8 @@ CREATE TABLE skin(
     weapon varchar(20),
     name varchar(50),
     quality skin_quality,
-    collection varchar(50)
+    collection varchar(50),
+    photo_url varchar(200)
 );
 `;
 

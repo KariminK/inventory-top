@@ -10,4 +10,5 @@ export interface skin {
   name: string;
   quality: quality;
   collection: string;
+  photo_url: string;
 }

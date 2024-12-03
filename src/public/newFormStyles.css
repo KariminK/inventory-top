@@ -1,6 +1,6 @@
 form {
   max-width: 1024px;
-  margin: 200px auto;
+  margin: 200px auto 0px;
 }
 h1 {
   font-size: 24px;
@@ -28,6 +28,9 @@ select {
 select {
   height: 2em;
 }
+#photoUrlInput {
+  text-decoration: underline;
+}
 
 input[type="submit"] {
   font-size: 1.25rem;
@@ -39,6 +42,7 @@ input[type="submit"] {
   width: 15%;
   cursor: pointer;
 }
+
 form > a {
   font-size: 1.25rem;
   color: white;
