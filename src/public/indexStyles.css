@@ -1,7 +1,7 @@
 @import url("variables.css");
 
 #add-skin-button {
-  position: fixed;
+  position: sticky;
   top: 0px;
   left: 50%;
   transform: translateX(-50%);
@@ -17,4 +17,51 @@
   height: 55px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  cursor: pointer;
+}
+main {
+  max-width: 1600px;
+  margin-inline: auto;
+}
+ul {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+.skin {
+  flex-basis: 460px;
+  max-width: calc(25%-4rem);
+  flex-grow: 1;
+}
+.skin-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 300px;
+}
+.skin-image > img {
+  width: 100%;
+}
+.skin-title {
+  font-size: 1.5rem;
+  line-height: 1.75em;
+  font-weight: 600;
+}
+.skin-quality,
+.skin-collection {
+  font-size: 1rem;
+  line-height: 1.5em;
+  color: var(--font-darker);
+}
+
+.skin-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.skin-caption > i {
+  font-size: 1.5rem;
+  margin: 1rem;
 }

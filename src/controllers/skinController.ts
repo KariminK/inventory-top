@@ -3,8 +3,12 @@ import { quality, skin } from "../types";
 import SkinModel from "../models/SkinModel";
 import { body, validationResult } from "express-validator";
 
-export const getIndex: RequestHandler = (req, res) => {
-  res.render("index");
+export const getIndex: RequestHandler = async (req, res) => {
+  const data = await SkinModel.get();
+  const skins = data.rows;
+  console.log(skins);
+
+  res.render("index", { skins });
 };
 
 export const getNewSkin: RequestHandler = (req, res) => {

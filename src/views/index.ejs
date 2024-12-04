@@ -9,5 +9,27 @@
   </head>
   <body>
     <a href="/new"><button id="add-skin-button">add skin</button></a>
+    <main>
+      <ul>
+        <% if (skins) { %> <% skins.forEach(skin=>{%>
+        <li class="skin">
+          <div class="skin-image">
+            <img src="<%- skin.photo_url %>" alt="<%- skin.name %>" />
+          </div>
+          <div class="skin-caption">
+            <div class="skin-info">
+              <h2 class="skin-title"><%- skin.weapon %> <%- skin.name%></h2>
+              <p class="skin-quality"><%- skin.quality %></p>
+              <p class="skin-collection"><%- skin.collection%></p>
+            </div>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </li>
+        <%})}%>
+      </ul>
+    </main>
+    <script
+      src="https://kit.fontawesome.com/2e000cecf5.js"
+      crossorigin="anonymous"></script>
   </body>
 </html>
