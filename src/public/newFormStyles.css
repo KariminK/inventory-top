@@ -1,7 +1,11 @@
-form {
+body {
   max-width: 1024px;
   margin: 200px auto 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
+
 h1 {
   font-size: 24px;
 }
@@ -15,7 +19,7 @@ input:not(input[type="submit"]),
 select {
   font-size: 1rem;
   line-height: 2em;
-  width: 30%;
+  width: 100%;
   border-radius: 20px;
   margin-top: 5px;
   background-color: transparent;
@@ -39,11 +43,11 @@ input[type="submit"] {
   border: none;
   border-radius: 20px;
   padding: 0.5rem;
-  width: 15%;
+  flex-grow: 1;
   cursor: pointer;
 }
 
-form > a {
+.form-btns > a {
   font-size: 1.25rem;
   color: white;
   border: 1px solid var(--accent-color);
@@ -51,6 +55,20 @@ form > a {
   text-align: center;
   border-radius: 20px;
   padding: 0.5rem;
-  width: 15%;
+  flex-grow: 1;
   text-decoration: none;
+}
+.form-btns {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.errors {
+  color: var(--error-color);
+}
+.errors ul {
+  list-style-position: inside;
+}
+.error {
+  line-height: 2.5em;
 }

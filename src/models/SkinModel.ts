@@ -14,8 +14,8 @@ class Model {
   }
   async add(skin: skin) {
     return this.db.query(
-      "INSERT INTO skin (weapon, name, quality, collection) VALUES($1, $2, $3, $4);",
-      [skin.weapon, skin.name, skin.quality, skin.collection]
+      "INSERT INTO skin (weapon, name, quality, collection, photo_url) VALUES($1, $2, $3, $4, $5);",
+      [skin.weapon, skin.name, skin.quality, skin.collection, skin.photo_url]
     );
   }
   // TODO: dodac handler dla update i delete

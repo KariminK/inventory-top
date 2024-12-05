@@ -1,4 +1,4 @@
-import { RequestHandler } from "express";
+import { Request, RequestHandler } from "express";
 import { quality, skin } from "../types";
 import SkinModel from "../models/SkinModel";
 import { body, validationResult } from "express-validator";
@@ -6,8 +6,6 @@ import { body, validationResult } from "express-validator";
 export const getIndex: RequestHandler = async (req, res) => {
   const data = await SkinModel.get();
   const skins = data.rows;
-  console.log(skins);
-
   res.render("index", { skins });
 };
 
@@ -16,9 +14,18 @@ export const getNewSkin: RequestHandler = (req, res) => {
 };
 
 // post new skin
-const postNewSkinReqHandler: RequestHandler = (req, res) => {
-  const data = validationResult(req);
-  console.log(data);
+const postNewSkinReqHandler: RequestHandler = async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.render("newForm", { errors: errors.array() });
+    }
+    const skin: skin = req.body;
+    await SkinModel.add(skin);
+    res.redirect("/");
+  } catch (error) {
+    res.status(500).send("internal server error: " + error);
+  }
 };
 
 // validator
@@ -33,7 +40,7 @@ function isQuality(qual: string): qual is quality {
 }
 
 // TO DO: TEST THIS
-export const postNewSkin = [
+const skinValidation = [
   body("weapon")
     .trim()
     .notEmpty()
@@ -66,8 +73,8 @@ export const postNewSkin = [
     .withMessage("photo url cannot be empty")
     .isURL()
     .withMessage("photo link must be url"),
-  postNewSkinReqHandler,
 ];
+export const postNewSkin = [...skinValidation, postNewSkinReqHandler];
 
 export const getEditSkin: RequestHandler = (req, res) => {};
 export const putEditSkin: RequestHandler = (req, res) => {};

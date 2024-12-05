@@ -14,7 +14,7 @@
         <% if (skins) { %> <% skins.forEach(skin=>{%>
         <li class="skin">
           <div class="skin-image">
-            <img src="<%- skin.photo_url %>" alt="<%- skin.name %>" />
+            <img src="<%= skin.photo_url %>" alt="<%- skin.name %>" />
           </div>
           <div class="skin-caption">
             <div class="skin-info">
@@ -22,7 +22,7 @@
               <p class="skin-quality"><%- skin.quality %></p>
               <p class="skin-collection"><%- skin.collection%></p>
             </div>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
+            <i class="fa-solid fa-ellipsis-vertical moreButton"></i>
           </div>
         </li>
         <%})}%>

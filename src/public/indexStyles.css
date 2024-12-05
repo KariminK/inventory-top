@@ -43,6 +43,7 @@ ul {
 }
 .skin-image > img {
   width: 100%;
+  max-width: 400px;
 }
 .skin-title {
   font-size: 1.5rem;

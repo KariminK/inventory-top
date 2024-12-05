@@ -25,7 +25,7 @@
           <option value="Well-Worn">Well-Worn</option>
           <option value="Field-Tested">Field-Tested</option>
           <option value="Minimal Wear">Minimal Wear</option>
-          <option value="Factory new" selected>Factory new</option>
+          <option value="Factory New" selected>Factory New</option>
         </select>
       </label>
       <label for="collection">
@@ -36,8 +36,20 @@
         Photo's URL:
         <input type="text" name="photo_url" id="photoUrlInput" />
       </label>
-      <input type="submit" value="Add" />
-      <a href="/">Cancel</a>
+      <div class="form-btns">
+        <input type="submit" value="Add" />
+        <a href="/">Cancel</a>
+      </div>
     </form>
+    <div class="errors">
+      <% if (locals.errors) { %>
+      <h2>Errors:</h2>
+      <ul>
+        <% errors.forEach(error => { %>
+        <li class="error"><%=error.msg %></li>
+        <% }) %>
+      </ul>
+      <% } %>
+    </div>
   </body>
 </html>
