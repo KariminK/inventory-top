@@ -23,7 +23,7 @@ main {
   max-width: 1600px;
   margin-inline: auto;
 }
-ul {
+main > ul {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -61,8 +61,33 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 .skin-caption > i {
   font-size: 1.5rem;
   margin: 1rem;
+}
+
+.skin-dropdown {
+  background-color: var(--background-lighter);
+  list-style-type: none;
+  padding: 1rem;
+  position: absolute;
+  border: 1px solid var(--font-darker);
+  right: -5rem;
+  z-index: 2;
+  top: 3rem;
+  display: none;
+}
+.skin-dropdown li {
+  padding: 0.5rem;
+}
+.skin-dropdown a {
+  color: var(--font-light);
+}
+.moreButton:hover + .skin-dropdown {
+  display: block;
+}
+.skin-dropdown:hover {
+  display: block;
 }
