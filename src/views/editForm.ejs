@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/root.css" />
+    <link rel="stylesheet" href="/newFormStyles.css" />
+  </head>
+  <body>
+    <form action="/edit" method="put">
+      <h1>Edit skin:</h1>
+      <label for="weaponInput">
+        Weapon name:
+        <input
+          type="text"
+          name="weapon"
+          id="weaponInput"
+          value="<%= skin.weapon %>" />
+      </label>
+      <label for="name">
+        Skin name:
+        <input
+          type="text"
+          name="name"
+          id="nameInput"
+          value="<%= skin.name %>" />
+      </label>
+      <label for="quality">
+        Quality:
+        <select name="quality" id="qualitySel">
+          <option value="Battle-Scared">Battle-Scared</option>
+          <option value="Well-Worn">Well-Worn</option>
+          <option value="Field-Tested">Field-Tested</option>
+          <option value="Minimal Wear">Minimal Wear</option>
+          <option value="Factory New" selected>Factory New</option>
+        </select>
+      </label>
+      <label for="collection">
+        Collection:
+        <input
+          type="text"
+          name="collection"
+          id="collectionInput"
+          value="<%= skin.collection %>" />
+      </label>
+      <label for="photo_url">
+        Photo's URL:
+        <input
+          type="text"
+          name="photo_url"
+          id="photoUrlInput"
+          value="<%=skin.photo_url %>" />
+      </label>
+      <div class="form-btns">
+        <input type="submit" value="Edit" />
+        <a href="/">Cancel</a>
+      </div>
+    </form>
+    <div class="errors">
+      <% if (locals.errors) { %>
+      <h2>Errors:</h2>
+      <ul>
+        <% errors.forEach(error => { %>
+        <li class="error"><%=error.msg %></li>
+        <% }) %>
+      </ul>
+      <% } %>
+    </div>
+  </body>
+</html>

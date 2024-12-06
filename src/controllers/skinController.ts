@@ -6,6 +6,8 @@ import { body, validationResult } from "express-validator";
 export const getIndex: RequestHandler = async (req, res) => {
   const data = await SkinModel.get();
   const skins = data.rows;
+  console.log(skins);
+
   res.render("index", { skins });
 };
 
@@ -76,7 +78,12 @@ const skinValidation = [
 ];
 export const postNewSkin = [...skinValidation, postNewSkinReqHandler];
 
-export const getEditSkin: RequestHandler = (req, res) => {};
+export const getEditSkin: RequestHandler = async (req, res) => {
+  const { id = 1 } = req.query;
+  const data = await SkinModel.get(+id);
+  const skin = data.rows[0];
+  res.render("editForm", { skin });
+};
 export const putEditSkin: RequestHandler = (req, res) => {};
 
 export const deleteSkin: RequestHandler = (req, res) => {};
