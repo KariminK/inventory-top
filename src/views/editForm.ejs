@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Edit <%=`${skin.weapon} ${skin.name}`%></title>
     <link rel="stylesheet" href="/root.css" />
-    <link rel="stylesheet" href="/newFormStyles.css" />
+    <link rel="stylesheet" href="/formStyles.css" />
   </head>
   <body>
-    <form action="/edit" method="put">
+    <form action="<%= "/edit/"+id %>" method="post">
       <h1>Edit skin:</h1>
       <label for="weaponInput">
         Weapon name:
@@ -57,15 +57,6 @@
         <a href="/">Cancel</a>
       </div>
     </form>
-    <div class="errors">
-      <% if (locals.errors) { %>
-      <h2>Errors:</h2>
-      <ul>
-        <% errors.forEach(error => { %>
-        <li class="error"><%=error.msg %></li>
-        <% }) %>
-      </ul>
-      <% } %>
-    </div>
+    <%- include("./partials/formErrors", {errors: locals.errors}) %>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Skin Inventory</title>
     <link rel="stylesheet" href="/indexStyles.css" />
     <link rel="stylesheet" href="/root.css" />
   </head>
@@ -18,14 +18,14 @@
           </div>
           <div class="skin-caption">
             <div class="skin-info">
-              <h2 class="skin-title"><%- skin.weapon %> <%- skin.name%></h2>
+              <h2 class="skin-title"><%- skin.weapon %> | <%- skin.name%></h2>
               <p class="skin-quality"><%- skin.quality %></p>
               <p class="skin-collection"><%- skin.collection%></p>
             </div>
             <i class="fa-solid fa-ellipsis-vertical moreButton"></i>
             <ul class="skin-dropdown">
               <li><a href="<%="/edit/"+skin.id %>">Edit</a></li>
-              <li><a href="/delete">Delete</a></li>
+              <li><a href="<%="/delete/"+skin.id %>">Delete</a></li>
             </ul>
           </div>
         </li>

@@ -1,9 +1,10 @@
 import { Router } from "express";
 import {
-  deleteSkin,
+  getDeleteSkin,
   getEditSkin,
   getIndex,
   getNewSkin,
+  postDeleteSkin,
   postNewSkin,
   putEditSkin,
 } from "../controllers/skinController";
@@ -23,9 +24,12 @@ indexRouter.post("/new", postNewSkin);
 indexRouter.get("/edit/:id", getEditSkin);
 
 // obsluga edytowania skina
-indexRouter.put("/edit", putEditSkin);
+indexRouter.post("/edit/:id", putEditSkin);
+
+// wyswietlanie formularza do usuwania skina
+indexRouter.get("/delete/:id", getDeleteSkin);
 
 // obsluga usuwania skina
-indexRouter.delete("/:id", deleteSkin);
+indexRouter.post("/delete/:id", postDeleteSkin);
 
 export default indexRouter;

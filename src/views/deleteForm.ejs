@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete <%= `${skin.weapon } ${skin.name}` %></title>
+    <link rel="stylesheet" href="/root.css" />
+    <link rel="stylesheet" href="/formStyles.css" />
+  </head>
+  <body>
+    <form action="<%=`/delete/${skin.id}`%>" method="post">
+      <h1>Are you sure to delete <%= `${skin.weapon } ${skin.name}` %> ?</h1>
+      <h2>Put skin's name and password to delete</h2>
+      <label for="nameInput">
+        Name:
+        <input type="text" name="name" id="nameInput" />
+      </label>
+      <label for="passwordInput">
+        Password:
+        <input type="password" name="password" id="passwordInput" />
+      </label>
+      <div class="form-btns">
+        <input type="submit" value="Delete" id="deleteBtn" />
+        <a href="/">Cancel</a>
+      </div>
+    </form>
+    <%- include("./partials/formErrors", {errors: locals.errors}) %>
+  </body>
+</html>

@@ -7,10 +7,10 @@ class Model {
   constructor(db: Pool) {
     this.db = db;
   }
-  async get(id?: number) {
+  async get(id?: number | string) {
     if (id)
       return await this.db.query("SELECT * FROM skin WHERE id = $1;", [id]);
-    else return await this.db.query("SELECT * FROM skin;");
+    else return await this.db.query("SELECT * FROM skin ORDER BY skin.id;");
   }
   async add(skin: skin) {
     return this.db.query(
@@ -19,13 +19,20 @@ class Model {
     );
   }
   // TODO: dodac handler dla update i delete
-  async update(id: number, skin: skin) {
+  async update(id: number | string, skin: skin) {
     return await this.db.query(
-      "UPDATE skin SET weapon = $1, name = $2, quality = $3, collection = $4 WHERE id = $5;",
-      [skin.weapon, skin.name, skin.quality, skin.collection, id]
+      "UPDATE skin SET weapon = $1, name = $2, quality = $3, collection = $4, photo_url = $5 WHERE id = $6;",
+      [
+        skin.weapon,
+        skin.name,
+        skin.quality,
+        skin.collection,
+        skin.photo_url,
+        id,
+      ]
     );
   }
-  async deleteSkin(id: number) {
+  async deleteSkin(id: number | string) {
     return await this.db.query("DELETE FROM skin WHERE id = $1;", [id]);
   }
 }

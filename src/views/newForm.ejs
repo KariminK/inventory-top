@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Add new skin</title>
     <link rel="stylesheet" href="/root.css" />
-    <link rel="stylesheet" href="/newFormStyles.css" />
+    <link rel="stylesheet" href="/formStyles.css" />
   </head>
   <body>
     <form action="/new" method="post">
@@ -40,16 +40,7 @@
         <input type="submit" value="Add" />
         <a href="/">Cancel</a>
       </div>
+      <%- include("./partials/formErrors", {errors: locals.errors}) %>
     </form>
-    <div class="errors">
-      <% if (locals.errors) { %>
-      <h2>Errors:</h2>
-      <ul>
-        <% errors.forEach(error => { %>
-        <li class="error"><%=error.msg %></li>
-        <% }) %>
-      </ul>
-      <% } %>
-    </div>
   </body>
 </html>

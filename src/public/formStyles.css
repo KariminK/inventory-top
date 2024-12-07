@@ -9,6 +9,11 @@ body {
 h1 {
   font-size: 24px;
 }
+h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--font-darker);
+}
 label {
   font-size: 1rem;
   display: block;
@@ -45,6 +50,9 @@ input[type="submit"] {
   padding: 0.5rem;
   flex-grow: 1;
   cursor: pointer;
+}
+#deleteBtn {
+  background-color: var(--error-color);
 }
 
 .form-btns > a {
