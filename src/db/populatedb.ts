@@ -4,6 +4,7 @@ import { configDotenv } from "dotenv";
 configDotenv();
 const client = new Client({
   connectionString: process.env.DB_CONNECTION_STRING,
+  ssl: true,
 });
 
 const structure = `
