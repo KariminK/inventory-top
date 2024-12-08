@@ -113,7 +113,7 @@ const deleteValidation = [
     .withMessage("skin name must be text"),
   body("password")
     .trim()
-    .isEmpty()
+    .notEmpty()
     .withMessage("password shouldn't be empty")
     .custom((val) => {
       return val === "strongSkinPassword";
@@ -128,4 +128,26 @@ export const getDeleteSkin: RequestHandler = async (req, res) => {
   res.render("deleteForm", { skin });
 };
 
-export const postDeleteSkin = [...skinValidation, putEditSkinReqHandler];
+const postDeleteSkinReqHandler: RequestHandler = async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    const { id } = req.params;
+    const { name } = req.body;
+    const data = await SkinModel.get(id);
+    const skin = data.rows[0];
+    if (!errors.isEmpty()) {
+      res.render("deleteForm", { errors: errors.array(), skin });
+      return;
+    }
+    if (skin.name !== name) {
+      res.render("deleteForm", { skin, errors: [{ msg: "Bad skin name" }] });
+      return;
+    }
+    await SkinModel.deleteSkin(id);
+    res.redirect("/");
+  } catch (error) {
+    res.status(500).send("ERROR: " + error);
+  }
+};
+
+export const postDeleteSkin = [...deleteValidation, postDeleteSkinReqHandler];
