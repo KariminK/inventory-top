@@ -18,7 +18,6 @@ class Model {
       [skin.weapon, skin.name, skin.quality, skin.collection, skin.photo_url]
     );
   }
-  // TODO: dodac handler dla update i delete
   async update(id: number | string, skin: skin) {
     return await this.db.query(
       "UPDATE skin SET weapon = $1, name = $2, quality = $3, collection = $4, photo_url = $5 WHERE id = $6;",

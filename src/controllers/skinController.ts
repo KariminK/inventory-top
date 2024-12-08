@@ -13,7 +13,6 @@ export const getNewSkin: RequestHandler = (req, res) => {
   res.render("newForm");
 };
 
-// post new skin
 const postNewSkinReqHandler: RequestHandler = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -29,7 +28,6 @@ const postNewSkinReqHandler: RequestHandler = async (req, res) => {
   }
 };
 
-// validator
 function isQuality(qual: string): qual is quality {
   return [
     "Battle-Scared",
@@ -40,7 +38,6 @@ function isQuality(qual: string): qual is quality {
   ].includes(qual);
 }
 
-// TO DO: TEST THIS
 const skinValidation = [
   body("weapon")
     .trim()
@@ -101,8 +98,6 @@ const putEditSkinReqHandler: RequestHandler = async (req, res) => {
 };
 
 export const putEditSkin = [...skinValidation, putEditSkinReqHandler];
-
-// usuwanie skina
 
 const deleteValidation = [
   body("name")
